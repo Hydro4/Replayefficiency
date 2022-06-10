@@ -1,5 +1,6 @@
 # Replayefficiency
-A Python script for Tetro replay files (.ttrm) which displays your total attacks in the match, pieces placed, and calculates your points per piece.
+A Python script for Tetrio replay files (.ttrm) which displays your total attacks, pieces placed, and attacks per piece. 
+Created this because I wanted to know APS and couldn't find how to see it in Tetrio
 
 ## Instructions:
 (Must have python installed, it is a python script!)
