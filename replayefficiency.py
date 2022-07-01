@@ -1,7 +1,8 @@
 import re
-#change "input.ttrm" to "blahblah.ttrm" to change the input file's name to blahblah.ttrm
+#change "input.ttrm" here is the input files name, change this to change the file name
 file = open("input.ttrm", "r")
 text = file.read()
+dplaces = 3 #number of decimals to round to
 
 p1_attacks = []
 p2_attacks = []
@@ -76,10 +77,22 @@ for i in p2_attacks_raw:
 for i in p2_pieces_raw:
     p2_pieces_total += int(i)
 
-print(player1, "\nattacks:", p1_attacks_total, "\npieces placed:", p1_pieces_total)
-print("Attacks per piece:", p1_attacks_total/p1_pieces_total)
 
-print(player2, "\nattacks:", p2_attacks_total, "\npieces placed:", p2_pieces_total)
-print("Attacks per piece:", p2_attacks_total/p2_pieces_total)
+print("Attacks, pieces, attacks per piece")
+print(player1 + ":", p1_attacks_total, p1_pieces_total, round(p1_attacks_total/p1_pieces_total, dplaces))
+print(player2 + ":", p2_attacks_total, p2_pieces_total, round(p2_attacks_total/p2_pieces_total, dplaces))
 
-input("\n\nType anything to exit")
+#show rounds
+showattacks = input("\n\nType anything to exit, type \"Y\" if you want to see stats by round ")
+if showattacks == "Y" or showattacks == "y":
+    
+    for i in range(len(p1_attacks_raw)):
+        print("Round", i+1)        
+
+        print(player1 + ":", end = " ")
+        print(p1_attacks_raw[i], p1_pieces_raw[i], round(int(p1_attacks_raw[i])/int(p1_pieces_raw[i]), dplaces))
+        print(player2 + ":", end = " ")
+        print(p2_attacks_raw[i], p2_pieces_raw[i], round(int(p2_attacks_raw[i])/int(p2_pieces_raw[i]), dplaces))
+else:
+    exit()
+
